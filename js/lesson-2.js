@@ -32,19 +32,69 @@
 //4 виводить зміст об'єкта users у форматі
 //'<ключ>:<значення>' використовуя Object.keys() та for...of
 
-const user = {
-  name: "John",
-  age: 20,
-  hobby: "tenis",
-  premium: true,
+// const user = {
+//   name: "John",
+//   age: 20,
+//   hobby: "tenis",
+//   premium: true,
+// };
+
+// user.mood = "happy";
+// user.hobby = "skydiving";
+// user.premium = false;
+
+// const userKeys = Object.keys(user);
+
+// for (const key of userKeys) {
+//   console.log(`${key}:${user[key]}`);
+// }
+
+
+// Напиши функцію, яка перебирає масив логінів і перевіряє
+// чи є ім'я введене в інпут у цьому масиві і у разі,
+// якщо є - виводить повідомлення "Доступ дозволено"
+// в іншому випадку - "Користувач не знайден"
+
+// const logins = ["Peter", "John", "Igor", "Sasha"];
+
+// function checkLogins(arr) {
+//   const login = prompt("Input login");
+//   // for (const element of arr) {
+//   //   if (element === login) {
+  
+//   //     return "Доступ дозволено";
+// // }
+
+  
+//   // }
+//   // return "Користувач не знайден";
+// //   if (arr.includes(login)) {
+// //     return "Доступ дозволено";
+// // }
+//   // return "Користувач не знайден";
+  
+//   return arr.includes(login) ? "Доступ дозволено" : "Користувач не знайден";
+
+// }
+
+// console.log( checkLogins(logins));
+
+//2. У нас є об'єкт, в якому зберігаються зарплати
+//нашої команди
+//Напишіть код для додавання усіх зарплат та
+//збережіть його результат в змінній sum.
+//Якщо об'єкт salaries пустий, то результат має бути 0
+
+const salaries = {
+  Mango: 100,
+  Poly: 160,
+  Ajax: 1470,
 };
 
-user.mood = "happy";
-user.hobby = "skydiving";
-user.premium = false;
-
-const userKeys = Object.keys(user);
-
-for (const key of userKeys) {
-  console.log(`${key}:${user[key]}`);
+let sum = 0;
+let values = Object.values(salaries);
+for (const value of values) {
+  sum += value;
 }
+
+console.log(sum);
