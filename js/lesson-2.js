@@ -85,16 +85,65 @@
 //збережіть його результат в змінній sum.
 //Якщо об'єкт salaries пустий, то результат має бути 0
 
-const salaries = {
-  Mango: 100,
-  Poly: 160,
-  Ajax: 1470,
-};
+// const salaries = {
+//   Mango: 100,
+//   Poly: 160,
+//   Ajax: 1470,
+// };
 
-let sum = 0;
-let values = Object.values(salaries);
-for (const value of values) {
-  sum += value;
+// let sum = 0;
+// let values = Object.values(salaries);
+// for (const value of values) {
+//   sum += value;
+// }
+
+// console.log(sum);
+
+
+// напиши функцію яка сумуватиме сусідні числа і пушити в новий масив
+// const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
+
+// const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
+
+
+// function sumPush(array) {
+//   const resultArray = [];
+//   const sum = 0;
+//   for (let i = 0; i < array.length - 1; i++) {
+//     resultArray.push(array[i] + array[i + 1]);
+//   }
+//   return resultArray;
+//   // return array.map((a, b, arr) => a + arr[b + 1]);
+// }
+
+// console.log(sumPush(someArr));
+
+//4. Створіть об'єкт calculator з трьомя методами
+//read(a, b) - приймає два аргумента і зберігає їх
+//як властивості об'єкта
+//sum() повертає сумму збереженних значень (з перевіркою на наявність властивостей в об'єкті)
+//mult() перемножає збереженні значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+
+const calculator = {
+  read(a, b) {
+    this.valueA = a;
+    this.valueB = b;
+  },
+  sum() {
+    if (this.valueA && this.valueB) {
+      return this.valueA + this.valueB;
+    }
+    return 'Значення не існує!';
+  },
+  mult() {
+    if (!this.valueA || !this.valueB || typeof this.valueA !== 'number') {
+      return 'Значення не існує!'
+    }
+    return this.valueA * this.valueB;
+  }
 }
 
-console.log(sum);
+calculator.read(5);
+
+console.log(calculator.sum());
+console.log(calculator.mult());
