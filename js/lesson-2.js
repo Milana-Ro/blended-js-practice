@@ -153,69 +153,123 @@
 
 //Типів транзакцій всього два.
 //Можна покласти або зняти гроші з рахунка
-const Transaction = {
-  DEPOSIT: "deposit",
-  WITHDRAW: "withdraw",
+// const Transaction = {
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
+
+// //Кожна транзакція це об'єкт з властивостями id, type, amount
+
+// const account = {
+//   //поточний баланс рахунка
+//   balance: 0,
+
+//   //Історія транзакцій
+//   transactions: [],
+
+//   //Метод створює і повертає об'єкт транзакцій
+//   //Приймає сумму і тип транзакцій
+//   createTransaction(type, amount) {
+//     return {
+//       type,
+//       amount,
+//     };
+//   },
+
+//   //Метод відповідає за додавання сумми к балансу.
+//   //Приймає сумму транзакціи.
+//   //Визиває createTransaction для створення об'єкта транзакціи
+//   //після чого додає його в історію транзакцій
+//   deposit(amount) {
+//     this.balance += amount;
+//     const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
+//     transaction.id = amount + (this.transactions.length + 1);
+//     this.transactions.push(transaction);
+//   },
+
+//   //Метод відповідає за зняття сумми з балансу.
+//   //Приймає сумму транзакціи.
+//   //Визиває createTransaction для створення об'єкта транзакціи
+//   //після чого додає йогого в історю транзакцій
+//   //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
+//   //що недостатньо коштів на рахунку
+//   withdraw(amount) {
+//     if (amount > this.balance) {
+//       console.log("недостатньо коштів на рахунку");
+//       return;
+//     }
+//     this.balance -= amount;
+//     const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
+//     transaction.id = amount + (this.transactions.length + 1);
+//     this.transactions.push(transaction);
+//   },
+
+//   //Метод повертає поточний баланс
+//   getBalance() {
+//     return `Ваш баланс ${this.balance} USD`;
+//   },
+
+//   //Метод шукає і повертає об'єкт транзакціи по id
+//   getTransactionDetails(id) {
+//     for (const elem of this.transactions) {
+//       if (elem.id === id) {
+//         return elem;
+//       }
+//     }
+//     return 'Транзакції не знайдено!';
+//   },
+
+//   //Метод повертає кількіств коштів вказаного типу
+//   //транзакціи зі всієї історії транзакцій
+//   getTransactionType(type) {
+//     let sumTotal = 0;
+//     for (const elem of this.transactions) {
+//       if (elem.type === type) {
+//         sumTotal += elem.amount;
+//       }
+//     }
+//     return sumTotal;
+//   },
+// };
+
+// account.deposit(10000);
+// account.deposit(2000);
+// account.withdraw(5000);
+// console.log(account);
+// console.log(account.getBalance());
+// console.log(account.getTransactionDetails(2002));
+// console.log(account.getTransactionType(Transaction.WITHDRAW));
+
+
+//HOME WORK
+
+// 6. Створіть телефонну книгу - об'єкт phonebook,
+// у якого є властивість contacts (список контактів)
+// та методи управління книгою:
+// add(data) - приймає об'єкт data, де зберігається
+// name, email, category, id, createdAt
+// (name i email - обов'язкові параметри, які треба передавати
+// при додаванні нового контакта,
+// category - може передаватись чи ні, якщо ні - має
+// приймати значення "default",
+// id та createdAt генеруються відповідними методами:
+// generateId() і getDate());
+// list() - повертає список контактів у вигляді таблиці;
+// filtered(category) - фільтрує контактів по обраній категорії (друзі, робота і т.д.)
+// delete(name) - видаляє контакт з заданим ім'ям;
+// updateName(oldName, newName) - зиінює ім'я контакта;
+const phonebook = {
+  contacts: [],
+  add(data) {}, 
+  list() {},
+  filtered(category) {},
+  delete(name) {},
+  updateName(oldName, newName) {},
+
+  generateId() {
+    return "#" + Math.random().toString(36).substr(2, 9);
+  },
+  getDate() {
+    return Date.now();
+  },
 };
-
-//Кожна транзакція це об'єкт з властивостями id, type, amount
-
-const account = {
-  //поточний баланс рахунка
-  balance: 0,
-
-  //Історія транзакцій
-  transactions: [],
-
-  //Метод створює і повертає об'єкт транзакцій
-  //Приймає сумму і тип транзакцій
-  createTransaction(type, amount) {
-    return {
-      type,
-      amount,
-    };
-  },
-
-  //Метод відповідає за додавання сумми к балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає його в історію транзакцій
-  deposit(amount) {
-    this.balance += amount;
-    const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
-    transaction.id = amount + (this.transactions.length + 1);
-    this.transactions.push(transaction);
-  },
-
-  //Метод відповідає за зняття сумми з балансу.
-  //Приймає сумму транзакціи.
-  //Визиває createTransaction для створення об'єкта транзакціи
-  //після чого додає йогого в історю транзакцій
-  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
-  //що недостатньо коштів на рахунку
-  withdraw(amount) {
-    if (amount > this.balance) {
-      console.log("недостатньо коштів на рахунку");
-      return;
-    }
-    this.balance -= amount;
-    const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
-    transaction.id = amount + (this.transactions.length + 1);
-    this.transactions.push(transaction);
-  },
-
-  //Метод повертає поточний баланс
-  getBalance() {},
-
-  //Метод шукає і повертає об'єкт транзакціи по id
-  getTransactionDetails(id) {},
-
-  //Метод повертає кількіств коштів вказаного типу
-  //транзакціи зі всієї історії транзакцій
-  getTransactionType(type) {},
-};
-
-account.deposit(10000);
-account.deposit(2000);
-account.withdraw(5000);
-console.log(account);
