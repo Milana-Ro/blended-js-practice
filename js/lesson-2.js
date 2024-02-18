@@ -49,7 +49,6 @@
 //   console.log(`${key}:${user[key]}`);
 // }
 
-
 // Напиши функцію, яка перебирає масив логінів і перевіряє
 // чи є ім'я введене в інпут у цьому масиві і у разі,
 // якщо є - виводить повідомлення "Доступ дозволено"
@@ -61,18 +60,17 @@
 //   const login = prompt("Input login");
 //   // for (const element of arr) {
 //   //   if (element === login) {
-  
+
 //   //     return "Доступ дозволено";
 // // }
 
-  
 //   // }
 //   // return "Користувач не знайден";
 // //   if (arr.includes(login)) {
 // //     return "Доступ дозволено";
 // // }
 //   // return "Користувач не знайден";
-  
+
 //   return arr.includes(login) ? "Доступ дозволено" : "Користувач не знайден";
 
 // }
@@ -99,12 +97,10 @@
 
 // console.log(sum);
 
-
 // напиши функцію яка сумуватиме сусідні числа і пушити в новий масив
 // const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
 
 // const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
-
 
 // function sumPush(array) {
 //   const resultArray = [];
@@ -124,26 +120,102 @@
 //sum() повертає сумму збереженних значень (з перевіркою на наявність властивостей в об'єкті)
 //mult() перемножає збереженні значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
 
-const calculator = {
-  read(a, b) {
-    this.valueA = a;
-    this.valueB = b;
-  },
-  sum() {
-    if (this.valueA && this.valueB) {
-      return this.valueA + this.valueB;
-    }
-    return 'Значення не існує!';
-  },
-  mult() {
-    if (!this.valueA || !this.valueB || typeof this.valueA !== 'number') {
-      return 'Значення не існує!'
-    }
-    return this.valueA * this.valueB;
-  }
-}
+// const calculator = {
+//   read(a, b) {
+//     this.valueA = a;
+//     this.valueB = b;
+//   },
+//   sum() {
+//     if (this.valueA && this.valueB) {
+//       return this.valueA + this.valueB;
+//     }
+//     return 'Значення не існує!';
+//   },
+//   mult() {
+//     if (!this.valueA || !this.valueB || typeof this.valueA !== 'number') {
+//       return 'Значення не існує!'
+//     }
+//     return this.valueA * this.valueB;
+//   }
+// }
 
-calculator.read(5);
+// calculator.read(5);
 
-console.log(calculator.sum());
-console.log(calculator.mult());
+// console.log(calculator.sum());
+// console.log(calculator.mult());
+
+//
+//
+
+//5. Напишіть скрипт керування особистим кабінетом інтернет банка
+//Є об'єкт account в якому необхідно реалізувати
+//методи для работи з балансом та історією транзакцій
+
+//Типів транзакцій всього два.
+//Можна покласти або зняти гроші з рахунка
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
+
+//Кожна транзакція це об'єкт з властивостями id, type, amount
+
+const account = {
+  //поточний баланс рахунка
+  balance: 0,
+
+  //Історія транзакцій
+  transactions: [],
+
+  //Метод створює і повертає об'єкт транзакцій
+  //Приймає сумму і тип транзакцій
+  createTransaction(type, amount) {
+    return {
+      type,
+      amount,
+    };
+  },
+
+  //Метод відповідає за додавання сумми к балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає його в історію транзакцій
+  deposit(amount) {
+    this.balance += amount;
+    const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
+    transaction.id = amount + (this.transactions.length + 1);
+    this.transactions.push(transaction);
+  },
+
+  //Метод відповідає за зняття сумми з балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає йогого в історю транзакцій
+  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
+  //що недостатньо коштів на рахунку
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log("недостатньо коштів на рахунку");
+      return;
+    }
+    this.balance -= amount;
+    const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
+    transaction.id = amount + (this.transactions.length + 1);
+    this.transactions.push(transaction);
+  },
+
+  //Метод повертає поточний баланс
+  getBalance() {},
+
+  //Метод шукає і повертає об'єкт транзакціи по id
+  getTransactionDetails(id) {},
+
+  //Метод повертає кількіств коштів вказаного типу
+  //транзакціи зі всієї історії транзакцій
+  getTransactionType(type) {},
+};
+
+account.deposit(10000);
+account.deposit(2000);
+account.withdraw(5000);
+console.log(account);
