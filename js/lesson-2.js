@@ -240,7 +240,6 @@
 // console.log(account.getTransactionDetails(2002));
 // console.log(account.getTransactionType(Transaction.WITHDRAW));
 
-
 //HOME WORK
 
 // 6. Створіть телефонну книгу - об'єкт phonebook,
@@ -258,18 +257,18 @@
 // filtered(category) - фільтрує контактів по обраній категорії (друзі, робота і т.д.)
 // delete(name) - видаляє контакт з заданим ім'ям;
 // updateName(oldName, newName) - зиінює ім'я контакта;
-const phonebook = {
-  contacts: [],
-  add(data) {}, 
-  list() {},
-  filtered(category) {},
-  delete(name) {},
-  updateName(oldName, newName) {},
+// const phonebook = {
+//   contacts: [],
+//   add(data) {},
+//   list() {},
+//   filtered(category) {},
+//   delete(name) {},
+//   updateName(oldName, newName) {},
 
-  generateId() {
-    return "#" + Math.random().toString(36).substr(2, 9);
-  },
-  getDate() {
-    return Date.now();
-  },
-};
+//   generateId() {
+//     return "#" + Math.random().toString(36).substr(2, 9);
+//   },
+//   getDate() {
+//     return Date.now();
+//   },
+// };
