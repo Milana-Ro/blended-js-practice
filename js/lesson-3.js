@@ -168,3 +168,61 @@
 
 // console.log(statObj);
 
+//1. Створи клас User для створення користувача з такими властивостями:
+//a. userName - ім'я, рядок
+//b. age - вік, число
+//c. numbersOfPost - кількість постів, число
+//d. конструктор очікує 1 параметр - об'єкт налаштувань з однойменними властивостями
+//Додай метод getInfo(), який повертає рядок:
+//`Користувачеві <name> <age> років і в нього <posts> публікацій.`
+
+// class User {
+//     constructor(userName, age, numbersOfPost) {
+//         this.userName = userName;
+//         this.age = age;
+//         this.numbersOfPost = numbersOfPost;
+//     }
+//     getInfo() {
+//         return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`;
+//     }
+    
+// }
+
+// const user = new User("Alice", 25, 15);
+// console.log(user.getInfo());
+
+
+//3. Напиши класс Notes який управляє коллекцієй нотаток у
+//властивості items.
+//Нотатка це  об'єкт з властивостями text, priority
+//Додай класу статичну властивість Priority,
+//в якій буде зберігатись об'єкт з пріорітетами ("hight", "middle", "low").
+//Додай методи addNote(note), removeNote(noteText)
+//updatePriority(noteText, newPriority)
+
+
+// class Notes {
+//     static Priority = {HIGHT: "hight", MIDDLE: "middle", LOW: "low"}
+//     constructor() {
+//         this.items = [];
+     
+//     }
+//     addNote(note) {this.items.push(note)}
+
+//     removeNote(noteText) {this.items = this.items.filter(note => note.text !== noteText)}
+
+//     updatePriority(noteText, newPriority) {
+//         const note = this.items.find(({text}) => text === noteText) 
+//         if (note) {
+//             note.priority = newPriority
+//         }
+//     }
+// }
+
+// const notes = new Notes()
+// notes.addNote({text: "lorem loremlorem", priority: Notes.Priority.MIDDLE})
+// notes.addNote({text: "lorem 1212551251", priority: Notes.Priority.HIGHT})
+// notes.addNote({text: "lorem sdfghliutyrterwert", priority: Notes.Priority.LOW})
+// notes.removeNote("lorem sdfghliutyrterwert")
+// notes.updatePriority("lorem loremlorem", Notes.Priority.LOW)
+// console.log(notes);
