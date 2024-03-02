@@ -226,3 +226,71 @@
 // notes.removeNote("lorem sdfghliutyrterwert")
 // notes.updatePriority("lorem loremlorem", Notes.Priority.LOW)
 // console.log(notes);
+
+
+// 4. Створити клас Worker, у якого є властивості name, age, salary.
+//У класу Worker є метод getSalary, який повертає повідомлення
+//"Worker <name> has salary <salary> dollars"
+//Створити клас TopLevelWorker, у якого є властивість position
+//і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+
+// class Worker {
+//   constructor(name, age, salary) {
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+//   }
+//   getSalary() {
+//     return `Worker ${this.name} has salary ${this.salary} dollars`
+//   }
+// }
+
+// class TopLevelWorker extends Worker {
+//   constructor(name, age, salary, position) {
+//     super(name, age, salary);
+//     this.position = position;
+//   }
+//   getPosition() {
+//     return `${this.name} works as ${this.position}`;
+//   }
+// }
+
+// const topLevelWorker = new TopLevelWorker('Alex', 19, 5000, 'Fullstack_Dev');
+// const enotherWorker = new TopLevelWorker('Milana', 18, 5500, 'Backend_Dev');
+
+// console.log(topLevelWorker);
+// console.log(enotherWorker);
+
+
+
+//----Home work
+
+// Ex.1
+//2. Напиши класс Client який створює об'єкт
+//із властивостями login, email
+//Об'яви приватні властивості #login і #email,
+//доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+// Ex.2
+//Напиши клас Storage який створює об'єкти
+//Для управління складом товарів.
+//При виклику отримуватиме один агрумент - початковий масив товарів,
+//і записувати їх у властивість items.
+//Додай методи класу:
+//getItems() - повертайте масив товарів
+//addItems(item) - отримує новий товар та додає його до поточних
+//removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
+
+//code spell checker
+
+// Ex.3
+//  Написати клас, який буде представляти зоопарк тварин.
+//  Створити загальний клас Animal для тварин.
+// У зоопарку повинні бути різні типи тварин, такі як ссавці, птахи, рептилії тощо.
+// Кожен тип тварин повинен мати свої властивості та методи, наприклад,
+//  методи для отримання інформації про тварину та для годівлі тварин.
+//  Крім того, зоопарк повинен мати метод для додавання тварин до списку та
+// метод для виведення списку всіх тварин у зоопарку.
